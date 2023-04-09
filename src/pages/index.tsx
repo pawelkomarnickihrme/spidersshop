@@ -6,8 +6,10 @@ import {
   GetStaticPropsContext,
   GetStaticProps,
 } from 'next';
-import { Product, Products } from './Types';
+import { IProduct, IProducts } from './Types';
 import axios from 'axios';
+import Link from 'next/link';
+import { Products } from './Products';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +25,20 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Home({ products }: { products: Products }) {
+export default function Home({ products }: { products: IProducts }) {
   console.log(products);
-  return <></>;
+  return (
+    <Products products={products} />
+    // <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    //   {products.map((product) => (
+    //     <div key={product.id}>
+    //       <Link href={`/product/${product.id}`}>
+    //         <h3>{product.name}</h3>
+    //         <p>{product.description}</p>
+    //         <img src={product.image} alt={product.name} />
+    //       </Link>
+    //     </div>
+    //   ))}
+    // </div>
+  );
 }

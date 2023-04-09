@@ -1,4 +1,4 @@
-export type Product = {
+export type IProduct = {
   name: string;
   description: string;
   image: string;
@@ -7,4 +7,4 @@ export type Product = {
   active: boolean;
   id: string;
 };
-export type Products = Product[];
+export type IProducts = IProduct[];
