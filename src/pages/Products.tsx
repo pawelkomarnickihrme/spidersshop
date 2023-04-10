@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { IProducts } from './Types';
+import { IProducts } from '../components/Types';
 import Link from 'next/link';
 import Product from '@/components/Product';
 
-export const Products = ({ products }: { products: IProducts }) => {
+const Products = ({ products }: { products: IProducts }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 8;
   const totalPages = Math.ceil(products.length / productsPerPage);
@@ -40,7 +40,7 @@ export const Products = ({ products }: { products: IProducts }) => {
             {i}
           </button>
         );
-      } 
+      }
     }
     return pages;
   };
@@ -85,3 +85,4 @@ export const Products = ({ products }: { products: IProducts }) => {
     </div>
   );
 };
+export default Products;

@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
-import { IProducts, ISearchParms } from './Types';
+import { IProducts, ISearchParms } from '../components/Types';
 import axios from 'axios';
-import { Products } from './Products';
+import Products from './Products';
 import Nav from './Nav';
 import { useState } from 'react';
 import Head from 'next/head';

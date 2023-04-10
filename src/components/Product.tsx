@@ -1,4 +1,4 @@
-import { IProduct } from '@/pages/Types';
+import { IProduct } from '@/components/Types';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
