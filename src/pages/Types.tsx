@@ -8,3 +8,9 @@ export type IProduct = {
   id: string;
 };
 export type IProducts = IProduct[];
+
+export type ISearchParms = {
+  searchValue: string;
+  isActive: boolean;
+  isPromotion: boolean;
+};

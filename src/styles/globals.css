@@ -18,5 +18,10 @@
 
 body {
   margin-left: 7rem;
-  margin-right: 7srem;
+  margin-right: 7rem;
+}
+@media (max-width: 800px) {
+  body {
+  margin-left: 1rem;
+  margin-right: 1rem;}
 }
