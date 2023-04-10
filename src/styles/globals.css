@@ -20,8 +20,6 @@ body {
 
   background-color: rgb(243, 240, 240);
 }
-@media (max-width: 800px) {
-  body {
-
-}
+svg.star-svg {
+  display: inline;
 }

@@ -6,9 +6,8 @@ import {
   GetStaticPropsContext,
   GetStaticProps,
 } from 'next';
-import { IProduct, IProducts, ISearchParms } from './Types';
+import { IProducts, ISearchParms } from './Types';
 import axios from 'axios';
-import Link from 'next/link';
 import { Products } from './Products';
 import Nav from './Nav';
 import { useState } from 'react';
@@ -40,7 +39,8 @@ export default function Home({ products }: { products: IProducts }) {
         item.name.toLowerCase().includes(searchValue.toLowerCase()) ||
         item.description.toLowerCase().includes(searchValue.toLowerCase());
       const isActiveAndActive = isActive && item.active;
-      const isPromotionAndPromotion = isPromotion && item.promotion;
+      const isPromotionAndPromotion =
+        isPromotion && item.promotion && (isActive || item.active);
       return (
         isInNameOrDescription &&
         (!isActive || isActiveAndActive) &&
@@ -49,8 +49,6 @@ export default function Home({ products }: { products: IProducts }) {
     });
     return filteredItems;
   }
-  console.log(filterItems(products, searchParms));
-  console.log(products);
   return (
     <>
       <Nav searchParms={searchParms} setSearchParms={setSearchParms} />
