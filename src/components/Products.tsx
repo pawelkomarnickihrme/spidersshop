@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IProducts } from '../components/Types';
+import { IProducts } from './Types';
 import Link from 'next/link';
 import Product from '@/components/Product';
 

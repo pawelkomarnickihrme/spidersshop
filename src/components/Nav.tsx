@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { Dispatch, SetStateAction } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { ISearchParms } from '../components/Types';
+import { ISearchParms } from './Types';
 import { useMediaQuery } from '@mui/material';
 
 function Nav({

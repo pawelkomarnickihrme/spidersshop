@@ -7,7 +7,14 @@ type Props = {
   product: IProduct | undefined;
 };
 
+function waitOneSecond() {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 3000);
+  });
+}
+
 export const getStaticPaths: GetStaticPaths = async () => {
+  await waitOneSecond();
   const resp = await axios.get(
     'https://642ec14a8ca0fe3352d7fe14.mockapi.io/api/v1/products'
   );
@@ -27,7 +34,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const { id } = params ?? {};
-
+  await waitOneSecond();
+  console.log('Koniec');
   const resp = await axios.get(
     'https://642ec14a8ca0fe3352d7fe14.mockapi.io/api/v1/products'
   );
