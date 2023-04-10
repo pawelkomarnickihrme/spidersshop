@@ -40,9 +40,7 @@ export const Products = ({ products }: { products: IProducts }) => {
             {i}
           </button>
         );
-      } else if (i - pages[pages.length - 1].key > 1) {
-        pages.push('...');
-      }
+      } 
     }
     return pages;
   };
