@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import axios from 'axios';
 import { IProduct, IProducts } from '../Types';
+import Head from 'next/head';
 
 type Props = {
   product: IProduct | undefined;
@@ -43,11 +44,18 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 const ProductPage = ({ product }: Props) => {
   if (product)
     return (
-      <div>
-        <h1>{product.name}</h1>
-        <p>{product.description}</p>
-        <img src={product.image} alt={product.name} />
-      </div>
+      <>
+        <Head>
+          <title>{product.name}</title>
+          <meta name="description" content={product.description} />
+          <meta name="keywords" content={product.name}></meta>
+        </Head>
+        <div>
+          <h1>{product.name}</h1>
+          <p>{product.description}</p>
+          <img src={product.image} alt={product.name} />
+        </div>
+      </>
     );
 };
 
