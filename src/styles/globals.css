@@ -17,11 +17,11 @@
 }
 
 body {
-  margin-left: 7rem;
-  margin-right: 7rem;
+
+  background-color: rgb(243, 240, 240);
 }
 @media (max-width: 800px) {
   body {
-  margin-left: 1rem;
-  margin-right: 1rem;}
+
+}
 }

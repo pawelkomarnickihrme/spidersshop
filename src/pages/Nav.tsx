@@ -33,7 +33,7 @@ function Nav({
     });
   };
   return (
-    <nav className="bg-white py-5 px-100 mr-10 flex justify-center items-center">
+    <nav className="bg-white w-screen px-28 py-5 px-100 mr-10 flex justify-center items-center">
       <div className="flex justify-center items-center">
         <Link href="/">
           <span className="text-l font-bold mr-10">logo</span>
