@@ -1,19 +1,10 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import {
-  GetStaticPathsResult,
-  GetStaticPropsResult,
-  GetStaticPropsContext,
-  GetStaticProps,
-} from 'next';
+import { GetStaticProps } from 'next';
 import { IProducts, ISearchParms } from './Types';
 import axios from 'axios';
 import { Products } from './Products';
 import Nav from './Nav';
 import { useState } from 'react';
 import Head from 'next/head';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const getStaticProps: GetStaticProps = async () => {
   const resp = await axios.get(
