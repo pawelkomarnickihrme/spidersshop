@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IProducts } from './Types';
+import Link from 'next/link';
 
 export const Products = ({ products }: { products: IProducts }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,9 +21,11 @@ export const Products = ({ products }: { products: IProducts }) => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {currentProducts.map((product) => (
         <div key={product.id}>
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
-          <img src={product.image} alt={product.name} />
+          <Link href={`/product/${product.id}`}>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <img src={product.image} alt={product.name} />
+          </Link>
         </div>
       ))}
       <div className="flex justify-center mt-4">
