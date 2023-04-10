@@ -6,19 +6,23 @@ import Head from 'next/head';
 type Props = {
   product: IProduct | undefined;
 };
-
-function wait06Second() {
-  return new Promise((resolve) => {
-    setTimeout(resolve, 600);
-  });
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
+async function loadProducts() {
   await wait06Second();
   const resp = await axios.get(
     'https://642ec14a8ca0fe3352d7fe14.mockapi.io/api/v1/products'
   );
   const products: IProducts = resp.data;
+  return products;
+}
+
+function wait06Second() {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 700);
+  });
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const products = await loadProducts();
 
   const paths = products
     .filter((product) => product.id !== undefined && product.id !== null)
@@ -34,11 +38,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const { id } = params ?? {};
-  await wait06Second();
-  const resp = await axios.get(
-    'https://642ec14a8ca0fe3352d7fe14.mockapi.io/api/v1/products'
-  );
-  const products: IProducts = resp.data;
+  const products = await loadProducts();
+
   const product = products.find((product) => product.id === id);
 
   return {
