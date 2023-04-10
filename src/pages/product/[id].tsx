@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import axios from 'axios';
-import { IProduct, IProducts } from '../Types';
+import { IProduct, IProducts } from '../../components/Types';
 import Head from 'next/head';
 
 type Props = {
