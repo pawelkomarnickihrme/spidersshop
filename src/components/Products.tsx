@@ -8,7 +8,7 @@ const Products = ({ products }: { products: IProducts }) => {
   const productsPerPage = 8;
   const totalPages = Math.ceil(products.length / productsPerPage);
   const pagesToShow = 3;
-
+useEffect(() => handleFirstPage(), [products]);
   const handleFirstPage = () => {
     setCurrentPage(1);
   };
