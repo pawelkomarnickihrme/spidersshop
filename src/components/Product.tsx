@@ -11,7 +11,7 @@ function Product({ product }: { product: IProduct }) {
   };
 
   return (
-    <div className="relative rounded-lg overflow-hidden my-3 bg-white h-100 w-70 flex flex-col justify-between">
+    <div className="relative rounded-lg overflow-hidden first:mt-4 bg-white h-100 w-70 flex flex-col justify-between">
       {promotion && (
         <div className="absolute top-2 left-0 bg-yellow-500 text-white py-1 px-4">
           Promo
