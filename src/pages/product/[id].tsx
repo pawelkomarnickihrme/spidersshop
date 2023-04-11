@@ -6,23 +6,21 @@ import Head from 'next/head';
 type Props = {
   product: IProduct | undefined;
 };
-async function loadProducts() {
-  await wait06Second();
-  const resp = await axios.get(
-    'https://642ec14a8ca0fe3352d7fe14.mockapi.io/api/v1/products'
-  );
-  const products: IProducts = resp.data;
-  return products;
-}
 
-function wait06Second() {
-  return new Promise((resolve) => {
-    setTimeout(resolve, 700);
-  });
+let cachedProducts: IProducts; // Zmienna globalna do przechowywania pobranych produktów
+
+async function loadProducts() {
+  if (!cachedProducts) {
+    const resp = await axios.get(
+      'https://642ec14a8ca0fe3352d7fe14.mockapi.io/api/v1/products'
+    );
+    cachedProducts = resp.data;
+  }
+  return cachedProducts;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await loadProducts();
+  const products: IProducts = await loadProducts();
 
   const paths = products
     .filter((product) => product.id !== undefined && product.id !== null)
